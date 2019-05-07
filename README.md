@@ -1,6 +1,7 @@
 学习笔记springboot2  
 ===
 **配置优先级顺序进行加载 ：**  
+===
   • 命令行参数   
   • 来自 java:comp/env 的JNDI属性  
   • Java 系统属性（ System.getProperties())  
@@ -14,17 +15,18 @@
   • 通过 SpringApplication .setDefaultProperties 指定的默认属性  
  
  **注解**   
-1.@ComponentScan  
+ ===
+**1.@ComponentScan**  
  (1)扫面当前包和子包  
  (2)设置被@Service注解类不被扫描 @ComponentScan(excludeFilters = {@Filter(classes = {Service . class})})   
-2.@Primery   
+**2.@Primery**   
  spring容器中存在两个实现同一接口的bean,当使用接口接收注入的bean时报错,解决这种情况:使用@Primery,意思为发现多  
  个同类型的bean,加@Primery的bean被优先注入    
-3.@ConfigurationProperties(value = "pdc")  
+**3.@ConfigurationProperties(value = "pdc")**  
  属性装配,和@Component一起使用,注意配合@Configuration时无法序列化  
-4.@PropertySource(value={” classpath : jclbc. properties ”｝ ，ignoreResourceNotFound=true)  
+**4.@PropertySource(value={” classpath : jclbc. properties ”｝ ，ignoreResourceNotFound=true)**  
  加载配置文件,默认只支持properties配置,不支持yml  
-5.@Profile   
+**5.@Profile**   
 在 Spring中存在两个参数可以提供给我们配置,以修改启动Profile机制，一个是spring.profiles.active，  
 另一个是 spring.profiles.default。在这两个属性都没有配置的情况下，Spring 将不会启动Profile机制.  
 这就意味着被＠Profile标注的Bean将不会被Spring装配到roe容器中,以appcation-{profile}.[yml/properties]的配置  
@@ -32,7 +34,7 @@
 所以spring.profiles.active的优先级要大于spring.profiles.default  
 在 Java 启动项目中，我们只 需要如下配置就能够启动 Profile 机制 ：  
 JAVA OPTS= "Dspring.profiles.active=dev "  
-6.@Value  
+**6.@Value**  
 可以使用SPEL    
 propertiesFromConfig是注入容器的bean,propertiesFromConfig是bean的name或者类名开头小写  
 @Value("#{propertiesFromConfig.getMap()}")  
@@ -61,7 +63,8 @@ private String resultDesc = null ;
 
 
  
-**bean作用域**   
+**bean作用域**  
+===  
 作用域类型--------使用范围------------用域描述
 singleton--------所有 S pring 应用----默认值 ， loC 容器只存在单例    
 prototype--------所有 Spring 应用-----每当从 IoC 容器中取出一个 Bean ，则创建一个新的 Bean  
