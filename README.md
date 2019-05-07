@@ -41,34 +41,34 @@ private Map map;
 是否为空。如果不为空才会去执行 toUppercase 方法  
 @Value ("#(beanName.str?.toUpperCase()}")   
 private String otherBeanProp = null ;      
-进行运算  
-＃数学运算
-@Value("#{1+2}")
-private int run;
-＃浮点数比较运算
-@Value("#{beanName.pi==3.14f}" )
-private boolean piFlag;
-＃字符串比较运算
-@Value("#{beanName.str eq 'Spring Boot'}" )
-private boolean strFlag ;
-＃字符串连接
-@Value("#{beanName.str + '连接字符串 '}"）
-private String strApp = null ;
-＃三元运算
-@Value("#{beanName.d>1000? '大子':'小子'}")
-private String resultDesc = null ;
+进行运算    
+＃数学运算  
+@Value("#{1+2}")  
+private int run;  
+＃浮点数比较运算  
+@Value("#{beanName.pi==3.14f}" )  
+private boolean piFlag;  
+＃字符串比较运算  
+@Value("#{beanName.str eq 'Spring Boot'}" )  
+private boolean strFlag ;  
+＃字符串连接  
+@Value("#{beanName.str + '连接字符串 '}"）  
+private String strApp = null ;  
+＃三元运算  
+@Value("#{beanName.d>1000? '大子':'小子'}")  
+private String resultDesc = null ;  
 
 
 
  
 **bean作用域**   
-作用域类型       使用范围                作用域描述
-singleton        所有 S pring 应用      默认值 ， loC 容器只存在单例    
-prototype        所有 Spring 应用       每当从 IoC 容器中取出一个 Bean ，则创建一个新的 Bean  
-session          Spring Web 应用        HTTP 会话  
-application      Spring Web 应用        Web 工程生命周期  
-request          Spring Web 应用        Web 工程单次请求 （ req uest)  
-globalSession    Spring Web 应用        在一个全局的 HTTPSession 中，一个 Bean定义对应一个实例.实践中基本不使用  
+作用域类型--------使用范围------------用域描述
+singleton--------所有 S pring 应用----默认值 ， loC 容器只存在单例    
+prototype--------所有 Spring 应用-----每当从 IoC 容器中取出一个 Bean ，则创建一个新的 Bean  
+session----------Spring Web 应用------HTTP 会话  
+application------Spring Web 应用------Web 工程生命周期  
+request----------Spring Web 应用------Web 工程单次请求 （ req uest)  
+globalSession----Spring Web 应用------在一个全局的 HTTPSession 中，一个 Bean定义对应一个实例.实践中基本不使用  
 
 
 
