@@ -1,0 +1,9 @@
+server:
+  port: 7400
+#属性装配PropertiesFromConfig
+pdc:
+  name: ccc
+  list:
+    - 1
+  map:
+    1: '1'
