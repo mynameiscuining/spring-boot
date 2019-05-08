@@ -1,5 +1,8 @@
 server:
   port: 7400
+
+
+
 #属性装配PropertiesFromConfig
 pdc:
   name: ccc
@@ -7,3 +10,60 @@ pdc:
     - 1
   map:
     1: '1'
+
+
+
+spring:
+  #数据源默认是hikari
+  datasource:
+    url: jdbc:mysql://192.168.229.129:3306/springboot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+      # 最小空闲连接数
+    username: yazheng
+    password: yazheng123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # 最小空闲连接数
+      minimum-idle: 5
+      ## 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      ## 连接池最大连接数，默认是10
+      maximum-pool-size: 100
+      ## 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      hikari.max-lifetime: 1800000
+      ## 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      ## 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+  #文件上传
+  servlet:
+    multipart:
+      #是否启用 Spring MVC 多分部上传功能
+      enabled: true
+      #将文件写入磁盘的阀值 。 值可以使用后缀“ MB ”或“ KB ” 来表示兆字节或字节大小
+      file-size-threshold: 0
+      #指定默认上传的文件夹
+      location: f:\\
+      #限制单个文件最大大小
+      max-file-size: 1MB
+      #限制所有文件最大大小
+      max-request-size: 10MB
+
+
+  #视图
+  mvc:
+    view:
+      suffix: .html
+
+
+mybatis:
+  mapper-locations: classpath*:mapping/*Mapper.xml
+
+
+logging:
+  level:
+    root: debug
+    org.springframework: debug
+    org.mybatis: debug
+
