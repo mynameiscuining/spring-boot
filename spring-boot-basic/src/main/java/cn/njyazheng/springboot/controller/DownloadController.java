@@ -50,6 +50,7 @@ public class DownloadController {
             response.setContentType("application/x-download");
             response.setHeader("Content-Disposition", "attachment;filename=kg.jpg");
             IOUtils.copy(in,outputStream);
+            outputStream.flush();
         }catch (Exception e) {
             LOGGER.error("------------------------Exception"+e);
             e.printStackTrace();
