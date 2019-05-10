@@ -77,6 +77,74 @@ globalSession----Spring Web 应用------在一个全局的 HTTPSession 中，一
 1.MapperScan("{mapper Package}")
 2.mapper接口 注解@Mapper  
 
+**spring-security**  
+UserDetailsBuilder方法:  
+accountExpired(boolean)------------->设置账号是否过期  
+accountLocked(boolean)------------->是否锁定账号  
+credential sExpired(boolean)------------->定义凭证是否过期  
+disabled(boolean)------------->是否禁用用户  
+username(String)------------->用户名  
+authorities(GrantedAuthority... )------------->赋予一个或者权限  
+authorities( List<? extends GrantedAuthority>)---------->权限列表   
+password(String) 定义密码  
+roles(String .. . ) 使用列表（ Li st ）赋予权限 赋予角色，会自动加入前缀“ROLE ”  
+
+**redis**  
+//获取地理位置操作接口  
+redisTemplate.opsForGeo() ;  
+//获取散列操作接口  
+redisTemplate.opsForHash();  
+//获取基数操作接口  
+redisTemplate.opsForHyperLogLog() ;  
+//获取列表操作接口  
+redisTemplate.opsForList() ;  
+//获取集合操作接口  
+redisTemplate.opsForSet();  
+//获取字符串操作接口  
+redisTemplate.opsForValue() ;  
+//获取有序集合操作接口  
+redisTemplate.opsForZSet();   
+
+//绑定某个键,做多次操作  
+//获取地理位置绑定键操作接口  
+redisTemplate.boundGeoOps("geo")  ;  
+//获取散列绑定键操作接口  
+redisTemplate.boundHashOps (”hash” );  
+//获取列表（链表）绑定键操作接口  
+redisTemplate.boundListOps("list");  
+//获取集合绑定键操作接口  
+redisTemplate.boundSetOps ("set");  
+//获取字符串绑定键操作接口  
+redisTemplate.boundValueOps("string")   
+//获取有序集合绑定键操作接口  
+redisTemplate.boundZSetOps("zset");  
+
+SessionCallback接口和RedisCallback接口，它们的作用是让RedisTemplate进行回调，  
+通过它们可以在同一条连接下执行多个Redis命令。其中SessionCallback提供了良好的封装，  
+对于开发者比较友好，因此在实际的开发中应该优先选择使用它；相对而言 ，RedisCallback  
+接口比较底层,需要处理的内容也比较多,可读性较差,所以在非必要的时候尽量不选择使用它  
+
+首先 Redis是支持一定事务能力的 NoSQL，在 Redis中使用事务，通常的命令组合是 watch...  
+multi .. .exec，也就是要在一个 Redis连接中执行多个命令，这时我们可以考虑使用SessionCallback  
+接口来达到这个目的。其中，watch 命令是可以监控 Redis 的一些键：multi命令是开始事务，开始事务  
+后，该客户端的命令不会马上被执行，而是存放在一个队列里，这点是需要注意的地方,也就是在  
+这时我们执行一些堪回数据的命令 ， Redis也是不会马上执行的，而是把命令放到一个队列里，所以  
+此时调用 Redis 的命令，结果都是返回 null ，这是初学者容易犯的错误： exe 命令的意义在于执行事  
+务，只是它在队列命令执行前会判断被 watch 监控的 Redis 的键的数据是否发生过变化（即使赋予与  
+之前相同的值也会被认为是变化过)，如果它认为发生了变化，那么 Redis 就会取消事务 ， 否则就会  
+执行事务， Redis 在执行事务时，要么全部执行 ， 要么全部不执行 ，而且不会被其他客户端打断，这  
+样就保证了 Redis 事务下数据的一致性   
+
+
+
+
+
+
+
+
+
+
+
 
 
 
