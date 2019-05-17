@@ -1,4 +1,4 @@
-package cn.njyazheng.springboot.config;
+package cn.njyazheng.springboot.database.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

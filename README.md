@@ -74,7 +74,7 @@ request----------Spring Web 应用------Web 工程单次请求 （ req uest)
 globalSession----Spring Web 应用------在一个全局的 HTTPSession 中，一个 Bean定义对应一个实例.实践中基本不使用  
 
 **mybatis mapper注入容器的方式**  
-1.MapperScan("{mapper Package}")
+1.MapperScan("{mapper Package}")  
 2.mapper接口 注解@Mapper  
 
 **spring-security**  

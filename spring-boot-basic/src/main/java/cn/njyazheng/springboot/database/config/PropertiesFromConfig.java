@@ -1,4 +1,4 @@
-package cn.njyazheng.springboot.config;
+package cn.njyazheng.springboot.database.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
