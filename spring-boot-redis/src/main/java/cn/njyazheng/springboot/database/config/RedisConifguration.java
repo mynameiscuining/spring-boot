@@ -14,6 +14,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConifguration {
     
     //配置RedisTemplate
+    //同样适用于redis做缓存配置
     @Bean
     public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory factory){
         RedisTemplate<String,Object> template = new RedisTemplate <>();
