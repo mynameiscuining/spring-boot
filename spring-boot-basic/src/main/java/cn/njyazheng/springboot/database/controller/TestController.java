@@ -1,6 +1,6 @@
 package cn.njyazheng.springboot.database.controller;
 
-import cn.njyazheng.springboot.database.config.PropertiesFromConfig;
+import cn.njyazheng.springboot.config.PropertiesFromConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;

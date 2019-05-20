@@ -1,4 +1,4 @@
-package cn.njyazheng.springboot.database.config;
+package cn.njyazheng.springboot.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

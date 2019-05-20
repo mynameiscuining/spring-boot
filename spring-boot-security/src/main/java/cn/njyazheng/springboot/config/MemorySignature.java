@@ -1,4 +1,4 @@
-package cn.njyazheng.springboot.database.config;
+package cn.njyazheng.springboot.config;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;

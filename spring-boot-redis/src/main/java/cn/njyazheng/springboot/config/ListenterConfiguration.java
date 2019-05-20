@@ -1,4 +1,4 @@
-package cn.njyazheng.springboot.database.config;
+package cn.njyazheng.springboot.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

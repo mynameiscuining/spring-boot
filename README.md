@@ -77,7 +77,8 @@ globalSession----Spring Web 应用------在一个全局的 HTTPSession 中，一
 1.MapperScan("{mapper Package}")  
 2.mapper接口 注解@Mapper  
 
-**spring-security**  
+spring-security  
+=== 
 UserDetailsBuilder方法:  
 accountExpired(boolean)------------->设置账号是否过期  
 accountLocked(boolean)------------->是否锁定账号  
@@ -89,7 +90,50 @@ authorities( List<? extends GrantedAuthority>)---------->权限列表
 password(String) 定义密码  
 roles(String .. . ) 使用列表（ Li st ）赋予权限 赋予角色，会自动加入前缀“ROLE ”  
 
-**redis**  
+**权限说明**  
+access(String)---------------参数为SpEL,如果返回true则允许访问  
+anonymous()------------------允许匿名访问  
+authorizeRequest()-----------开始请求权限资源设置  
+anyRequest()-----------------任何请求  
+hasAnyRole(String...)--------能对资源访问的多个角色,多个用逗号隔开,自动添加前缀_ROLE  
+hasRole(String)--------------能对资源访问的一个角色,自动添加前缀_ROLE  
+permitAll()------------------无条件允许访问资源  
+and()------------------------连接词,并取消之前限定前提条件  
+httpBasic()------------------开启浏览器http基础验证  
+formLogin()------------------开启登录页面  
+not()------------------------对设置的限定条件取反  
+fullyAuthenticated()---------如果是完整验证(非Remember-me),则允许访问  
+denyAll()--------------------无条件不允许访问  
+hasIpAddress(String)---------指定的IP允许访问  
+rememberme()-----------------通过Remember-me的验证功能就允许访问  
+hasAuthority(String)---------指定角色可以访问资源,不会加前缀  
+hasAnyAuthority(String...)---指定多个角色可以访问资源,不会加前缀  
+**access(String)权限SPEL**  
+authentication()-----------------用户认证对象  
+denyAll()------------------------拒绝任何访问  
+hasAnyRole(String ...)-----------当前用户是否存在参数中列明的对象属性  
+hasRole(String)------------------前用户是否存在角色  
+hasIpAddress(String)-------------是否请求来自指定的IP  
+1sAnonymous()--------------------是否匿名访问  
+isAuthenticated()----------------是否用户通过认证签名  
+1sFullyAuthenticated()-----------是否用户是完整验证，即非“记住我”(RememberMe认证）功能通过的认证  
+isRememberMe()-------------------是否是通过“记住我”功能通过的验证  
+permitAll()----------------------无条件允许任何访问
+principal()----------------------用户的principal对象
+
+
+
+
+
+
+
+
+
+
+
+
+redis  
+===
 //获取地理位置操作接口  
 redisTemplate.opsForGeo() ;  
 //获取散列操作接口  
