@@ -77,6 +77,24 @@ globalSession----Spring Web 应用------在一个全局的 HTTPSession 中，一
 1.MapperScan("{mapper Package}")  
 2.mapper接口 注解@Mapper  
 
+AOP术语  
+===
+•**连接点**(join point)：对应的是具体被拦截的对象，因为Spring只能支持方法，所以被拦截  
+的对象往往就是指特定的方法  
+•**切点**(point cut)：有时候，我们的切面不单单应用于单个方法，也可能是多个类的不同方  
+法，这时，可以通过正则式和指示器的规则去定义，从而适配连接点 。 切点就是提供这样一  
+个功能的概念 。
+•**通知**(advice)：就是按照约定的流程下的方法，分为前置通知（ before advice ）、后置通知（ after  
+advice ）、环绕通知 （ around advice ） 、 事后返回通知（ afterRetuming advice ）和异常通知  
+(afterThrowing advice ），它会根据约定织入流程中，需要弄明白它们在流程中的顺序和运行  
+的条件 。  
+•**目标对象**(target)：即被代理对象  
+•**引入**(introduction)：是指引入新的类和其方法 ，增强现有Bean的功能 。  
+•**织入**(weaving)：它是一个通过动态代理技术，为原有服务对象生成代理对象 ， 然后将与切    
+点定义匹配的连接点拦截，并按约定将各类通知织入约定流程的过程 。  
+•**切面**(aspect）：是一个可以定义切点、各类通知和引入的内容,SpringAOP将通过它的信息  
+来增强 Bean 的功能或者将对应的方法织入流程 。  
+
 spring-security  
 === 
 UserDetailsBuilder方法:  

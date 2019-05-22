@@ -63,7 +63,7 @@ mybatis:
 
 logging:
   level:
-    root: debug
+    root: info
     org.springframework: info
     org.mybatis: debug
 # LOGGING
