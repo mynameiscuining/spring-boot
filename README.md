@@ -95,6 +95,25 @@ advice ）、环绕通知 （ around advice ） 、 事后返回通知（ afterR
 •**切面**(aspect）：是一个可以定义切点、各类通知和引入的内容,SpringAOP将通过它的信息  
 来增强 Bean 的功能或者将对应的方法织入流程 。  
 
+事务  
+===
+**@Transactional注解的属性**  
+    
+    @AliasFor("transactionManager")  
+    String value() default "";//指定事务管理器   
+    @AliasFor("value")  
+    String transactionManager() default "";//指定事务管理器  
+    Propagation propagation() default Propagation.REQUIRED;//传播行为  
+    Isolation isolation() default Isolation.DEFAULT;  //隔离级别  
+    int timeout() default -1;  //超时时间(s)  
+    boolean readOnly() default false;//是否只读事务    
+    Class<? extends Throwable>[] rollbackFor() default {};//默认所有异常回滚,这里指定哪些异常回滚      
+    String[] rollbackForClassName() default {};   
+    Class<? extends Throwable>[] noRollbackFor() default {};  
+    String[] noRollbackForClassName() default {};  
+    
+
+
 spring-security  
 === 
 UserDetailsBuilder方法:  
