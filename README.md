@@ -70,7 +70,7 @@ singleton--------所有 S pring 应用----默认值 ， loC 容器只存在单�
 prototype--------所有 Spring 应用-----每当从 IoC 容器中取出一个 Bean ，则创建一个新的 Bean  
 session----------Spring Web 应用------HTTP 会话  
 application------Spring Web 应用------Web 工程生命周期  
-request----------Spring Web 应用------Web 工程单次请求 （ req uest)  
+request----------Spring Web 应用------Web 工程单次请求 (request)  
 globalSession----Spring Web 应用------在一个全局的 HTTPSession 中，一个 Bean定义对应一个实例.实践中基本不使用  
 
 **mybatis mapper注入容器的方式**  

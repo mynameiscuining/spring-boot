@@ -16,6 +16,6 @@ public class BeanCycle {
     }
     @PreDestroy
     public void destroy(){
-        LOGGER.info("--------------------@PPreDestroy定义bean的销毁方法");
+        LOGGER.info("--------------------@PreDestroy定义bean的销毁方法");
     }
 }
