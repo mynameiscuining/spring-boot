@@ -1,4 +1,4 @@
-package cn.njyazheng.springboot.database.controller;
+package cn.njyazheng.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

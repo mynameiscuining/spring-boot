@@ -1,4 +1,4 @@
-package cn.njyazheng.springboot.database.controller;
+package cn.njyazheng.springboot.controller;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;

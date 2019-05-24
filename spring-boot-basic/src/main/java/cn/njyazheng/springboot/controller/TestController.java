@@ -1,4 +1,4 @@
-package cn.njyazheng.springboot.database.controller;
+package cn.njyazheng.springboot.controller;
 
 import cn.njyazheng.springboot.config.PropertiesFromConfig;
 import org.springframework.beans.factory.annotation.Autowired;

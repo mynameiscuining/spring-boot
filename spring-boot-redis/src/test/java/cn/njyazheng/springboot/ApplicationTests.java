@@ -26,7 +26,7 @@ public class ApplicationTests {
     public void testRedis() {
         redisTemplate.opsForValue().set("test","test");
     }
-    //回调,一个连接中执行多条命令
+    //回调,一个连接中执行多条命令,
     @Test
     public void testSessionCallback(){
        redisTemplate.execute(new SessionCallback() {
