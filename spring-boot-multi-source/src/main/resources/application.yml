@@ -1,0 +1,10 @@
+server:
+  port: 7400
+
+spring:
+  profiles:
+    active: dynamic
+mybatis:
+  configuration:
+    #下划线转驼峰命名
+    map-underscore-to-camel-case: true

@@ -4,7 +4,7 @@ server:
 # redis--lettuce
 spring:
   datasource:
-    url: jdbc:mysql://192.168.229.129:3306/springboot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    url: jdbc:mysql://192.168.229.129:3306/cn.njyazheng.springboot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
     # 最小空闲连接数
     username: yazheng
     password: yazheng123

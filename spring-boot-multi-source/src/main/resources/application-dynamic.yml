@@ -1,0 +1,17 @@
+#不支持多数据源事务
+spring:
+  datasource:
+    dynamic:
+      primary: db01
+      datasource:
+        db01:
+          username: root01
+          password: root01
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://192.168.229.128:3306/db01?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+        db02:
+          username: root02
+          password: root02
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://192.168.229.128:3306/db02?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+

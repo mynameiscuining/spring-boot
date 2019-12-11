@@ -8,6 +8,8 @@
         <module>spring-boot-extension</module>
         <module>spring-boot-security</module>
         <module>spring-boot-redis</module>
+        <module>spring-boot-multi-source</module>
+        <module>mybatis-generator</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
