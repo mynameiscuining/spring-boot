@@ -1,4 +1,4 @@
-#不支持多数据源事务
+#不支持多数据源事务,比较适用读写分离
 spring:
   datasource:
     dynamic:
