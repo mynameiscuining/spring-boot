@@ -1,6 +1,7 @@
 package cn.njyazheng.springboot.usedynamic;
 
 import cn.njyazheng.springboot.domain.User;
+import cn.njyazheng.springboot.domain.UserInfo;
 import cn.njyazheng.springboot.mapper.UserMapper;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +9,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@DS("db01")
 public class UserService {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private UserInfoService userInfoService;
 
     //注解方法优先
     @DS("db01")
@@ -51,7 +53,7 @@ public class UserService {
     }
 
     /**
-     * 子方法@Ds会失效,数据源为同一个
+     * 同类子方法@Ds会失效,数据源为同一个,此数据源primary配置项
      */
     @Transactional
     public void insertDiffSource() {
@@ -70,5 +72,21 @@ public class UserService {
         user.setId(22);
         user.setAge(1);
         addUserDB01(user);
+    }
+
+    /**
+     * 不同类子方法调用@DS依然失效,数据源为父类方法定义的数据源
+     */
+    @Transactional
+    public void insertDifffCalssDiffSource() {
+        User user = new User();
+        user.setName("lucy");
+        user.setAge(1);
+        addUserDB01(user);
+
+        UserInfo userInfo = new UserInfo();
+        userInfo.setAddr("Chinese");
+        userInfoService.add(userInfo);
+
     }
 }

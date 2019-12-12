@@ -31,5 +31,10 @@ public class UserServiceTest {
     public void insertDiffSource() {
         userService.insertDiffSource();
     }
+    @Test
+    public void insertDifffCalssDiffSource() {
+        userService.insertDifffCalssDiffSource();
+    }
+
 
 }
