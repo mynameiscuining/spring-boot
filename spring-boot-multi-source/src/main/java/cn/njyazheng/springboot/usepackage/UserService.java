@@ -19,8 +19,9 @@ public class UserService {
     private User01Mapper userMapper;
 
     /**
-     * 1.在非配置分布式事务务下不使用注解@Transactional,正常
-     * 2.在非配置分布式事务务下使用注解@Transactional数据源全变成db02
+     * 1.在非配置分布式事务下不使用注解@Transactional,正常
+     * 2.在非配置分布式事务下使用注解@Transactional数据源全变成db02
+     * 3.引入分布式事务.注解@Transactional,正常
      */
     @Transactional
     public void add() {
@@ -30,7 +31,7 @@ public class UserService {
         userMapper.insert(user);
 
         UserInfo userInfo = new UserInfo();
-        userInfo.setAddr("Chinese");
+        //userInfo.setAddr("Chinese");
         userInfoMapper.insert(userInfo);
     }
 

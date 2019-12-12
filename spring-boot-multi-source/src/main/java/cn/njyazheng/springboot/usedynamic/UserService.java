@@ -3,7 +3,7 @@ package cn.njyazheng.springboot.usedynamic;
 import cn.njyazheng.springboot.domain.User;
 import cn.njyazheng.springboot.domain.UserInfo;
 import cn.njyazheng.springboot.mapper.UserMapper;
-import com.baomidou.dynamic.datasource.annotation.DS;
+//import com.baomidou.dynamic.datasource.annotation.DS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -19,19 +19,19 @@ public class UserService {
     private UserInfoService userInfoService;
 
     //注解方法优先
-    @DS("db01")
+    //@DS("db01")
     public boolean addUserDB01(User user) {
         userMapper.insert(user);
         return true;
     }
 
-    @DS("db02")
+   // @DS("db02")
     public boolean addUserDB02(User user) {
         userMapper.insert(user);
         return true;
     }
 
-    @DS("db02")
+    //@DS("db02")
     public User selectUser() {
         return userMapper.selectByPrimaryKey(1);
     }

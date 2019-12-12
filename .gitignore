@@ -5,3 +5,4 @@
 **/target/*
 /mybatis-generator/**
 /mybatis-generator/**/*.xml
+/spring-boot-multi-source/transaction-logs/

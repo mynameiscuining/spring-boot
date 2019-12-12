@@ -24,9 +24,9 @@
 
         <!--jdbc的数据库连接-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.229.128:3306/db01?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;useSSL=false"
-                        userId="root01"
-                        password="root01">
+                        connectionURL="jdbc:mysql://192.168.229.131:3306/db02?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;useSSL=false"
+                        userId="root02"
+                        password="root02">
         </jdbcConnection>
 
         <!--非必须，类型处理器，在数据库类型和java类型之间的转换控制-->
@@ -39,7 +39,7 @@
 
         <!-- targetPackage：生成的实体类所在的包 -->
         <!-- targetProject：生成的实体类所在的硬盘位置 -->
-        <javaModelGenerator targetPackage="cn.njyazheng.cn.njyazheng.springboot.domain"
+        <javaModelGenerator targetPackage="cn.njyazheng.springboot.domain"
                             targetProject=".\src\main\java">
             <!-- 是否允许子包 -->
             <property name="enableSubPackages" value="false"/>
@@ -64,13 +64,13 @@
         <!--        MIXEDMAPPER:XML和注解的混合形式，(上面这种情况中的)SqlProvider注解方法会被XML替代。-->
         <!--        XMLMAPPER:所有的方法都在XML中，接口调用依赖XML文件。-->
         <javaClientGenerator type="ANNOTATEDMAPPER"
-                             targetPackage="cn.njyazheng.cn.njyazheng.springboot.mapper" targetProject=".\src\main\java">
+                             targetPackage="cn.njyazheng.springboot.mapper" targetProject=".\src\main\java">
             <!-- 针对 oracle 数据库的一个配置，是否把 schema 作为字包名 -->
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
 
-        <table tableName="user01" domainObjectName="User" enableCountByExample="false"
+        <table tableName="userinfo" domainObjectName="UserInfo" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>

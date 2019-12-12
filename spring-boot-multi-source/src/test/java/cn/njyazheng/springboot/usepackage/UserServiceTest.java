@@ -1,6 +1,6 @@
 package cn.njyazheng.springboot.usepackage;
 
-import cn.njyazheng.springboot.domain.User;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
