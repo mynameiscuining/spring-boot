@@ -17,7 +17,7 @@
             <version>2.0.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
-        <!-- baomidou提供 ,不支持多数据源事务-->
+        <!-- baomidou提供,官网说明不支持事务-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>dynamic-datasource-spring-boot-starter</artifactId>

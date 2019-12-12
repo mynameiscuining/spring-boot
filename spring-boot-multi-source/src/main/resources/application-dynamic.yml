@@ -13,5 +13,5 @@ spring:
           username: root02
           password: root02
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://192.168.229.128:3306/db02?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+          url: jdbc:mysql://192.168.229.131:3306/db02?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
 

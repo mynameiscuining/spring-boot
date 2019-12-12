@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UserServiceTest {
     @Autowired
     private UserService userService;
-    
+
     @Test
     public void insert() {
         User user = new User();
@@ -21,4 +21,15 @@ public class UserServiceTest {
         user.setName("jack");
         userService.addUserDB02(user);
     }
+
+    @Test
+    public void insertSingleSource() {
+         userService.insertSingleSource();
+    }
+
+    @Test
+    public void insertDiffSource() {
+        userService.insertDiffSource();
+    }
+
 }

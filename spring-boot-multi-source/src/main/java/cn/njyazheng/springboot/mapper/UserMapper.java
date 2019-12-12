@@ -12,8 +12,8 @@ public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
     @Insert({
-        "insert into user01 ( name)",
-        "values ( #{name,jdbcType=VARCHAR})"
+        "insert into user01 ( name,age)",
+        "values ( #{name,jdbcType=VARCHAR},#{age})"
     })
     int insert(User record);
 
