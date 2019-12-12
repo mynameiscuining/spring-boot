@@ -3,6 +3,7 @@ package cn.njyazheng.springboot.mapper;
 import cn.njyazheng.springboot.domain.UserInfo;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
+
 @Mapper
 public interface UserInfoMapper {
     @Delete({

@@ -4,9 +4,11 @@ import cn.njyazheng.springboot.domain.UserInfo;
 import cn.njyazheng.springboot.mapper.UserInfoMapper;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @DS("db02")
+@Profile("dynamic")
 @Service
 public class UserInfoService {
     @Autowired
