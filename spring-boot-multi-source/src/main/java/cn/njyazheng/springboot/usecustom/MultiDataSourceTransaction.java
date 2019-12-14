@@ -5,6 +5,7 @@ import org.apache.ibatis.transaction.Transaction;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -14,7 +15,7 @@ import java.util.concurrent.ConcurrentMap;
 
 
 @Slf4j
-public class MultiDataSourceTransaction implements Transaction{
+public class MultiDataSourceTransaction implements Transaction {
 
     private final DataSource dataSource;
 
@@ -29,12 +30,14 @@ public class MultiDataSourceTransaction implements Transaction{
 
     private boolean autoCommit;
 
+    private final String primary = "db01";
+
 
     public MultiDataSourceTransaction(DataSource dataSource) {
         Assert.notNull(dataSource, "No DataSource specified");
         this.dataSource = dataSource;
         otherConnectionMap = new ConcurrentHashMap<>();
-        mainDatabaseIdentification=DataSourceHolder.getDatasourceKey();
+        mainDatabaseIdentification = StringUtils.isEmpty(DataSourceHolder.getDatasourceKey()) ? primary : DataSourceHolder.getDatasourceKey();
     }
 
 
@@ -44,25 +47,37 @@ public class MultiDataSourceTransaction implements Transaction{
     @Override
     public Connection getConnection() throws SQLException {
         String databaseIdentification = DataSourceHolder.getDatasourceKey();
-        if (databaseIdentification.equals(mainDatabaseIdentification)) {
-            if (mainConnection != null) return mainConnection;
-            else {
-                openMainConnection();
-                mainDatabaseIdentification =databaseIdentification;
-                return mainConnection;
-            }
-        } else {
-            if (!otherConnectionMap.containsKey(databaseIdentification)) {
-                try {
-                    Connection conn = dataSource.getConnection();
-                    otherConnectionMap.put(databaseIdentification, conn);
-                } catch (SQLException ex) {
-                    throw new CannotGetJdbcConnectionException("Could not get JDBC Connection", ex);
-                }
+        if (StringUtils.isEmpty(databaseIdentification)) {
+            databaseIdentification = primary;
+            try {
+                Connection conn = dataSource.getConnection();
+                otherConnectionMap.put(databaseIdentification, conn);
+            } catch (SQLException ex) {
+                throw new CannotGetJdbcConnectionException("Could not get JDBC Connection", ex);
             }
             return otherConnectionMap.get(databaseIdentification);
-        }
+        } else {
 
+            if (databaseIdentification.equals(mainDatabaseIdentification)) {
+                if (mainConnection != null) return mainConnection;
+                else {
+                    openMainConnection();
+                    mainDatabaseIdentification = databaseIdentification;
+                    return mainConnection;
+                }
+            } else {
+
+                if (!otherConnectionMap.containsKey(databaseIdentification)) {
+                    try {
+                        Connection conn = dataSource.getConnection();
+                        otherConnectionMap.put(databaseIdentification, conn);
+                    } catch (SQLException ex) {
+                        throw new CannotGetJdbcConnectionException("Could not get JDBC Connection", ex);
+                    }
+                }
+                return otherConnectionMap.get(databaseIdentification);
+            }
+        }
     }
 
 
