@@ -3,11 +3,12 @@ package cn.njyazheng.springboot.usedynamic;
 import cn.njyazheng.springboot.domain.User;
 import cn.njyazheng.springboot.domain.UserInfo;
 import cn.njyazheng.springboot.mapper.UserMapper;
-//import com.baomidou.dynamic.datasource.annotation.DS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+//import com.baomidou.dynamic.datasource.annotation.DS;
 
 @Service
 @Profile("dynamic")
@@ -38,6 +39,7 @@ public class UserService {
 
     /**
      * 同一个数据源会回滚
+     * 数据源注解式对方法的调用不可出现在同一类中(父类,子类).被调用方法注解失效,遵从父类数据源
      */
     @Transactional
     public void insertSingleSource() {
@@ -56,6 +58,7 @@ public class UserService {
 
     /**
      * 1.在注解下Transactional同类子方法多个数据源会失效,数据源为同一个,此数据源primary配置项
+     * 数据源注解式对方法的调用不可出现在同一类中(父类,子类).被调用方法注解失效,遵从父类数据源
      * 2.不注解Transactional,可以查到多个数据源正常
      */
     @Transactional

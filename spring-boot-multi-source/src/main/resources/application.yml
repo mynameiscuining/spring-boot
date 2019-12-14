@@ -3,8 +3,9 @@ server:
 
 spring:
   profiles:
+    active: custom
     #active: dynamic
-    active: package
+    #active: package
 mybatis:
   configuration:
     #下划线转驼峰命名
